@@ -14,8 +14,8 @@ class Solution:
         n = len(array[0])  # columns
         if m == 0 or n == 0:
             return 0
-        if target > array[m-1][n-1]:
-            return 0
+        # if target > array[m-1][n-1]:
+        #     return 0
 		# 从右上角开始
         row = 0
         col = n-1
