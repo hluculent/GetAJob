@@ -24,6 +24,7 @@ class Solution:
         # return xx
         if not self.s1 and not self.s2:
             return
+        # 只有s2空了再把s1新进的元素push进来
         if not self.s2:
         	while self.s1:
 				self.s2.append(self.s1.pop())
