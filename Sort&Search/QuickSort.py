@@ -38,8 +38,33 @@ def qsort(arr):
         return arr
     else:
         pivot = arr[0]
-        return qsort([x for x in arr[1:] if x < pivot]) + \
+        print [x for x in arr[1:] if x < pivot] + \
                [pivot] + \
-               qsort([x for x in arr[1:] if x >= pivot])
+               [x for x in arr[1:] if x >= pivot]
 
-quickSort([49,38,65,97,76,13,27],0,7)
+# version 3 easy and standard
+def part(L, low, high):
+    pivot = L[low]
+    while low < high:
+        while low < high and L[high] >= pivot:
+            high -= 1
+        L[low] = L[high]
+        while low < high and L[low] < pivot:
+            low += 1
+        L[high] = L[low]
+    L[low] = pivot
+    return low
+
+def Qsort(L, low, high):
+    if low < high:
+        pivot_pos = part(L, low, high)
+        # print L[pivot_pos]
+        Qsort(L, low, pivot_pos)
+        Qsort(L, pivot_pos+1, high)
+
+
+# quickSort([19,15,12,18,21,36,45,10],0,8)
+# print qsort([19,15,12,18,21,36,45,10])
+L = [19,15,12,18,21,36,45,10]
+Qsort(L,0,7)
+print L
